@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Vitkuz573\SystemResources\Resources;
+namespace Vitkuz573\SystemResources\Concerns;
 
 use Vitkuz573\SystemResources\Enums\Size;
 
-abstract class Resource
+trait Sizeable
 {
     protected Size $unit;
     protected int $value;
@@ -17,7 +17,13 @@ abstract class Resource
         $this->unit = $unit;
     }
 
-    final protected function convertSize(): int|float
+    abstract public function total(): int;
+
+    abstract public function used(): int;
+
+    abstract public function available(): int;
+
+    final protected function convert(): int|float
     {
         $this->unit !== Size::Byte ?: $this->result = $this->value;
         $this->unit !== Size::Kilobyte ?: $this->result = intval($this->value / 1024);

@@ -4,16 +4,11 @@ declare(strict_types=1);
 
 namespace Vitkuz573\SystemResources\Resources;
 
-use Vitkuz573\SystemResources\Contracts\Resource;
-use Vitkuz573\SystemResources\Enums\Size;
-use Vitkuz573\SystemResources\Resources\Resource as BaseResource;
+use Vitkuz573\SystemResources\Concerns\Sizeable;
 
-class Ram extends BaseResource implements Resource
+class Ram
 {
-    public function __construct(Size $unit)
-    {
-        parent::__construct($unit);
-    }
+    use Sizeable;
 
     public function total(): int
     {
@@ -23,9 +18,7 @@ class Ram extends BaseResource implements Resource
             $this->value = array_sum($capacity);
         }
 
-        dd($this);
-
-        return $this->convertSize();
+        return $this->convert();
     }
 
     public function used(): int
@@ -41,6 +34,6 @@ class Ram extends BaseResource implements Resource
             $this->value = array_sum($freePhysicalMemory) * 1024;
         }
 
-        return $this->convertSize();
+        return $this->convert();
     }
 }

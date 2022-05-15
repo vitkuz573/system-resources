@@ -4,16 +4,11 @@ declare(strict_types=1);
 
 namespace Vitkuz573\SystemResources\Resources;
 
-use Vitkuz573\SystemResources\Contracts\Resource;
-use Vitkuz573\SystemResources\Enums\Size;
-use Vitkuz573\SystemResources\Resources\Resource as BaseResource;
+use Vitkuz573\SystemResources\Concerns\Sizeable;
 
-class Drive extends BaseResource implements Resource
+class Drive
 {
-    public function __construct(Size $unit)
-    {
-        parent::__construct($unit);
-    }
+    use Sizeable;
 
     public function total(): int
     {
@@ -23,7 +18,7 @@ class Drive extends BaseResource implements Resource
             $this->value = array_sum($size);
         }
 
-        return $this->convertSize();
+        return $this->convert();
     }
 
     public function used(): int
@@ -39,6 +34,6 @@ class Drive extends BaseResource implements Resource
             $this->value = array_sum($freeSpace);
         }
 
-        return $this->convertSize();
+        return $this->convert();
     }
 }
