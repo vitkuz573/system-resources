@@ -1,0 +1,52 @@
+{
+    "name": "vitkuz573/system-resources",
+    "description": "Package for getting information about system resources and their usage",
+    "keywords": [
+        "system resources",
+        "resources usage",
+        "vitkuz573"
+    ],
+    "homepage": "https://github.com/vitkuz573/system-resources",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Vitaly Kuzyaev",
+            "email": "vitkuz573@gmail.com",
+            "homepage": "https://vitkuz.ru",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=8.1"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.8",
+        "phpstan/phpstan": "1.7.x-dev",
+        "phpunit/phpunit": "~9.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Vitkuz573\\SystemResources\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Vitkuz573\\SystemResources\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html tests/coverage",
+        "csfix": "vendor/bin/php-cs-fixer fix --allow-risky=yes",
+        "csfix-validate": "vendor/bin/php-cs-fixer fix --dry-run --diff --allow-risky=yes",
+        "phpstan": "vendor/bin/phpstan analyse src tests examples",
+        "code-quality": [
+            "@csfix-validate",
+            "@phpstan"
+        ]
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev"
+}
