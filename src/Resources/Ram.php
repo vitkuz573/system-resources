@@ -17,9 +17,13 @@ class Ram extends BaseResource implements Resource
 
     public function total(): int
     {
-        PHP_OS !== 'WINNT' ?: exec('wmic memorychip get capacity', $capacity);
+        if (PHP_OS === 'WINNT') {
+            exec('wmic memorychip get capacity', $capacity);
 
-        $this->value = array_sum($capacity);
+            $this->value = array_sum($capacity);
+        }
+
+        dd($this);
 
         return $this->convertSize();
     }
@@ -31,9 +35,11 @@ class Ram extends BaseResource implements Resource
 
     public function available(): int
     {
-        PHP_OS !== 'WINNT' ?: exec('wmic os get freephysicalmemory', $freePhysicalMemory);
+        if (PHP_OS === 'WINNT') {
+            exec('wmic os get freephysicalmemory', $freePhysicalMemory);
 
-        $this->value = array_sum($freePhysicalMemory) * 1024;
+            $this->value = array_sum($freePhysicalMemory) * 1024;
+        }
 
         return $this->convertSize();
     }

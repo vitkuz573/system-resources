@@ -17,7 +17,7 @@ abstract class Resource
         $this->unit = $unit;
     }
 
-    protected function convertSize(): int|float
+    final protected function convertSize(): int|float
     {
         $this->unit !== Size::Byte ?: $this->result = $this->value;
         $this->unit !== Size::Kilobyte ?: $this->result = intval($this->value / 1024);

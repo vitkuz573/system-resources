@@ -17,9 +17,11 @@ class Drive extends BaseResource implements Resource
 
     public function total(): int
     {
-        PHP_OS !== 'WINNT' ?: exec('wmic diskdrive get size', $size);
+        if (PHP_OS === 'WINNT') {
+            exec('wmic diskdrive get size', $size);
 
-        $this->value = array_sum($size);
+            $this->value = array_sum($size);
+        }
 
         return $this->convertSize();
     }
@@ -31,9 +33,11 @@ class Drive extends BaseResource implements Resource
 
     public function available(): int
     {
-        PHP_OS !== 'WINNT' ?: exec('wmic logicaldisk get freespace', $freeSpace);
+        if (PHP_OS === 'WINNT') {
+            exec('wmic logicaldisk get freespace', $freeSpace);
 
-        $this->value = array_sum($freeSpace);
+            $this->value = array_sum($freeSpace);
+        }
 
         return $this->convertSize();
     }
