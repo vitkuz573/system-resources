@@ -8,7 +8,7 @@ use Vitkuz573\SystemResources\Enums\Size;
 
 trait Sizeable
 {
-    protected Size $unit;
+    public Size $unit;
     protected int $value;
     protected int $result;
 

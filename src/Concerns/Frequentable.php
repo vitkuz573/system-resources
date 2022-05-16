@@ -8,7 +8,7 @@ use Vitkuz573\SystemResources\Enums\Frequency;
 
 trait Frequentable
 {
-    protected Frequency $unit;
+    public Frequency $unit;
     protected int $value;
     protected int|float $result;
 

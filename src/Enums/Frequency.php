@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Vitkuz573\SystemResources\Enums;
 
-enum Frequency
+enum Frequency: string
 {
-    case Megahertz;
-    case Gigahertz;
+    case Megahertz = 'MHz';
+    case Gigahertz = 'GHz';
 }
