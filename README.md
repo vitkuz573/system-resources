@@ -36,6 +36,13 @@ Please see the [changelog](CHANGELOG.md) for more information on what has change
 composer test
 ```
 
+## 💥 Progress
+|       | Windows            | Linux |
+|-------|--------------------|-------|
+| RAM   | :heavy_check_mark: |       |
+| CPU   | :heavy_check_mark: |       |
+| Drive | :heavy_check_mark: |       |
+
 ## 👋 Contributing
 
 Please see [CONTRIBUTING.md](CONTRIBUTING.md) for details and a todolist.

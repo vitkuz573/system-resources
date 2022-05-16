@@ -17,11 +17,11 @@ trait Capacitable
         $this->unit = $unit;
     }
 
-    abstract public function total(): int|float;
+    abstract protected function total(): int|float;
 
-    abstract public function used(): int|float;
+    abstract protected function used(): int|float;
 
-    abstract public function available(): int|float;
+    abstract protected function available(): int|float;
 
     final protected function convert(): int|float
     {
