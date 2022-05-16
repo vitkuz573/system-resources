@@ -10,7 +10,7 @@ class Ram
 {
     use Sizeable;
 
-    public function total(): int
+    public function total(): int|float
     {
         if (PHP_OS === 'WINNT') {
             exec('wmic memorychip get capacity', $capacity);
@@ -21,12 +21,12 @@ class Ram
         return $this->convert();
     }
 
-    public function used(): int
+    public function used(): int|float
     {
         return $this->total() - $this->available();
     }
 
-    public function available(): int
+    public function available(): int|float
     {
         if (PHP_OS === 'WINNT') {
             exec('wmic os get freephysicalmemory', $freePhysicalMemory);

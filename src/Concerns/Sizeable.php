@@ -17,11 +17,11 @@ trait Sizeable
         $this->unit = $unit;
     }
 
-    abstract public function total(): int;
+    abstract public function total(): int|float;
 
-    abstract public function used(): int;
+    abstract public function used(): int|float;
 
-    abstract public function available(): int;
+    abstract public function available(): int|float;
 
     final protected function convert(): int|float
     {
