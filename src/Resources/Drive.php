@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace Vitkuz573\SystemResources\Resources;
 
-use Vitkuz573\SystemResources\Concerns\Sizeable;
+use Vitkuz573\SystemResources\Concerns\Capacitable;
 
 class Drive
 {
-    use Sizeable;
+    use Capacitable;
 
     public function total(): int|float
     {
