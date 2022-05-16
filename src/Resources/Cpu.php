@@ -1,19 +1,21 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Vitkuz573\SystemResources\Resources;
 
-use Vitkuz573\SystemResources\Concerns\Frequenable;
+use Vitkuz573\SystemResources\Concerns\Frequentable;
 
 class Cpu
 {
-    use Frequenable;
+    use Frequentable;
 
     public function max(): int|float
     {
         if (PHP_OS === 'WINNT') {
             exec('wmic cpu get maxclockspeed', $maxClockSpeed);
 
-            $this->value = $maxClockSpeed[1];
+            $this->value = (int) $maxClockSpeed[1];
         }
 
         return $this->convert();
@@ -24,7 +26,7 @@ class Cpu
         if (PHP_OS === 'WINNT') {
             exec('wmic cpu get currentclockspeed', $currentClockSpeed);
 
-            $this->value = $currentClockSpeed[1];
+            $this->value = (int) $currentClockSpeed[1];
         }
 
         return $this->convert();

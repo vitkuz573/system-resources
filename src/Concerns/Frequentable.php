@@ -6,7 +6,7 @@ namespace Vitkuz573\SystemResources\Concerns;
 
 use Vitkuz573\SystemResources\Enums\Frequency;
 
-trait Frequenable
+trait Frequentable
 {
     protected Frequency $unit;
     protected int $value;
@@ -21,7 +21,7 @@ trait Frequenable
 
     abstract public function current(): int|float;
 
-    final protected function convert(): int
+    final protected function convert(): int|float
     {
         $this->unit !== Frequency::Megahertz ?: $this->result = $this->value;
         $this->unit !== Frequency::Gigahertz ?: $this->result = round($this->value / 1000, 2);

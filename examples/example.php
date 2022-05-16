@@ -30,7 +30,7 @@ echo 'Available: ' . $drive->available() . ' MB' . PHP_EOL;
 
 echo PHP_EOL;
 
-$cpu = new Cpu(Frequency::Gigahertz);
+$cpu = new Cpu(Frequency::Megahertz);
 
 echo 'CPU' . PHP_EOL . PHP_EOL;
 echo 'Max: ' . $cpu->max() . ' MHz' . PHP_EOL;
